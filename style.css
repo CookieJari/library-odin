@@ -2,19 +2,19 @@
 * {
   box-sizing: border-box;
 }
-body {
+body,
+html {
   margin: 0px;
+  height: 100%;
+  background-color: #f2c288;
 }
 
 main {
-  background-color: #f2c288;
-  height: 100vh;
-  width: 100%;
+  height: 100%;
+  width: 100vw;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 main > * {
   padding: 0px 25vw;
@@ -25,14 +25,10 @@ main > * {
   }
 }
 .form-container {
-  border: 1px solid blue;
-
   width: 100%;
   flex: 0.3;
 }
 .display-container {
-  border: 1px solid red;
-
   width: 100%;
   flex: 1;
   padding-block: 2rem;
@@ -94,7 +90,10 @@ main > * {
 }
 
 /* form css */
-
+.form-container {
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid rgba(8, 114, 105, 0.849);
+}
 form {
   height: 100%;
   padding: 1em 0px;
@@ -102,12 +101,17 @@ form {
   position: relative;
 
   display: flex;
+  flex-direction: column;
+  gap: calc(1rem+5px);
+  font-family: "Narnoor", serif;
+}
+.main-form {
+  width: 100%;
+  display: flex;
   gap: 2rem;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-
-  font-family: "Narnoor", serif;
 }
 
 .form-item {
@@ -116,13 +120,24 @@ form {
   display: flex;
   flex-direction: column;
 }
-.button-div {
-  position: absolute;
-  right: 0;
-  bottom: 0.5rem;
 
+.checkbox-button {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+
+.button-div {
   height: 2.5rem;
   width: 2.5rem;
+
+  display: flex;
+
+  justify-content: right;
 }
 label {
   font-size: 1.5rem;
@@ -131,7 +146,7 @@ input {
   height: 2em;
   background-color: rgba(255, 255, 255, 0);
   border: 0px;
-  border-bottom: 2px solid rgba(41, 41, 41, 0.733);
+  border-bottom: 2px solid rgba(41, 41, 41, 0.493);
 }
 input:focus-visible {
   outline: 1px solid rgba(88, 104, 88, 0.534);
@@ -158,4 +173,25 @@ button:hover {
 }
 button:active {
   border: 3px solid #020e20;
+}
+
+.read {
+  flex: 1;
+  display: flex;
+
+  flex-direction: row-reverse;
+  justify-content: left;
+  align-items: center;
+  gap: 0.5rem;
+}
+.read > label {
+  text-align: center;
+  font-size: 1.3rem;
+
+  margin-top: -6px;
+}
+
+input[type="checkbox"] {
+  margin: 0px;
+  width: 1.25rem;
 }

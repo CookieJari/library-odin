@@ -3,6 +3,10 @@ let myLibrary = [];
 const cardContainer = document.querySelector(".display-container");
 const cardTemplate = document.querySelector(".card");
 
+const form = document.querySelector("form");
+const submitButton = document.querySelector("button[type='submit']");
+submitButton.addEventListener("click", submitForm, false);
+
 function Book(title, author, numberOfPages, read) {
   this.title = title;
   this.author = author;
@@ -10,11 +14,12 @@ function Book(title, author, numberOfPages, read) {
   this.read = read;
 }
 
-function addBookToLibrary(book) {
-  myLibrary.push(book);
+function addBookToLibrary(title, author, numberOfPages, read) {
+  myLibrary.push(new Book(title, author, numberOfPages, read));
 }
 
 function displayBooks() {
+  cardContainer.innerHTML = "";
   console.log(cardContainer);
   for (let i = 0; i < myLibrary.length; i++) {
     //clone the card template
@@ -34,14 +39,29 @@ function displayBooks() {
     console.log(myLibrary[i]);
   }
 }
-const book1 = new Book("Whimpy Kid", "Jeff Kinney", 32, true);
-const book2 = new Book(
+
+function submitForm(event) {
+  const bookTitle = form.querySelector("#book-title").value;
+  const author = form.querySelector("#author").value;
+  const numberOfPages = form.querySelector("#number-of-pages").value;
+  const read = form.querySelector("#read").checked;
+  console.log(bookTitle);
+  console.log(author);
+  console.log(numberOfPages);
+  console.log(read);
+
+  addBookToLibrary(bookTitle, author, numberOfPages, read);
+  displayBooks();
+  event.preventDefault();
+}
+
+addBookToLibrary("Whimpy Kid", "Jeff Kinney", 32, true);
+addBookToLibrary(
   "Neal Lerios: a life of a kid in missouri",
   "Neal Lerios",
   435,
   false
 );
-addBookToLibrary(book1);
-addBookToLibrary(book2);
 displayBooks();
+console.log(myLibrary);
 cardTemplate.remove();

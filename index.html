@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -10,20 +14,34 @@
     <main>
       <div class="form-container">
         <form action="">
-          <div class="form-item">
-            <label for="book-title">Book Title</label>
-            <input type="text" name="book-title" id="book-title" />
+          <div class="main-form">
+            <div class="form-item book-title">
+              <label for="book-title">Book Title</label>
+              <input type="text" name="book-title" id="book-title" required />
+            </div>
+            <div class="form-item author">
+              <label for="author">Author</label>
+              <input type="text" name="author" id="author" required />
+            </div>
+            <div class="form-item number-of-pages">
+              <label for="number-of-pages">Number of Pages</label>
+              <input
+                type="text"
+                name="number-of-pages"
+                id="number-of-pages"
+                required
+              />
+            </div>
           </div>
-          <div class="form-item">
-            <label for="author">Author</label>
-            <input type="text" name="author" id="author" />
-          </div>
-          <div class="form-item">
-            <label for="Number of Pages">Number of Pages</label>
-            <input type="text" name="Number of Pages" id="Number of Pages" />
-          </div>
-          <div class="button-div">
-            <button type="submit"></button>
+
+          <div class="checkbox-button">
+            <div class="read">
+              <label for="read"><span>Have you Read this Book?</span></label>
+              <input type="checkbox" name="read" id="read" required />
+            </div>
+            <div class="button-div">
+              <button type="submit"></button>
+            </div>
           </div>
         </form>
       </div>
