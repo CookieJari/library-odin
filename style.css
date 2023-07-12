@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Makasar&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0px;
+}
+
+main {
+  background-color: #f2c288;
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+main > * {
+  padding: 0px 1vw;
+}
+.form-container {
+  border: 1px solid blue;
+
+  width: 100%;
+  flex: 0.3;
+}
+.display-container {
+  border: 1px solid red;
+
+  width: 100%;
+  flex: 1;
+  padding-block: 2rem;
+
+  /**
+   * User input values.
+   */
+  --grid-layout-gap: 25px;
+  --grid-column-count: 3;
+  --grid-item--min-width: 250px;
+
+  /**
+    * Calculated values.
+    */
+  --gap-count: calc(var(--grid-column-count) - 1);
+  --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
+  --grid-item--max-width: calc(
+    (100% - var(--total-gap-width)) / var(--grid-column-count)
+  );
+
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
+  );
+  grid-gap: var(--grid-layout-gap);
+  grid-template-rows: 200px;
+}
+.card {
+  background: #083a51;
+  position: relative;
+  border-radius: 3px;
+  height: 200px;
+  color: #fff5ed;
+  font-family: "Noto Serif Makasar", serif;
+  letter-spacing: 0.1em;
+  padding: 1rem;
+}
+.card-footer {
+  width: 100%;
+  height: 2rem;
+  background-color: #47b785;
+  border-radius: 0px 0px 3px 3px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
