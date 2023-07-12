@@ -35,7 +35,12 @@ function displayBooks() {
   }
 }
 const book1 = new Book("Whimpy Kid", "Jeff Kinney", 32, true);
-const book2 = new Book("Neal Lerios: a life", "Neal Lerios", 435, false);
+const book2 = new Book(
+  "Neal Lerios: a life of a kid in missouri",
+  "Neal Lerios",
+  435,
+  false
+);
 addBookToLibrary(book1);
 addBookToLibrary(book2);
 displayBooks();

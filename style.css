@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Makasar&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Narnoor&family=Noto+Serif+Makasar&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -18,7 +17,12 @@ main {
   align-items: center;
 }
 main > * {
-  padding: 0px 1vw;
+  padding: 0px 25vw;
+}
+@media only screen and (max-width: 800px) {
+  main > * {
+    padding: 0px 2vw;
+  }
 }
 .form-container {
   border: 1px solid blue;
@@ -66,6 +70,18 @@ main > * {
   font-family: "Noto Serif Makasar", serif;
   letter-spacing: 0.1em;
   padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: top;
+}
+.title > h2 {
+  inline-size: 100%;
+  overflow: hidden;
+  overflow-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .card-footer {
   width: 100%;
@@ -75,4 +91,71 @@ main > * {
   position: absolute;
   bottom: 0px;
   left: 0px;
+}
+
+/* form css */
+
+form {
+  height: 100%;
+  padding: 1em 0px;
+  padding-bottom: 4rem;
+  position: relative;
+
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  font-family: "Narnoor", serif;
+}
+
+.form-item {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+.button-div {
+  position: absolute;
+  right: 0;
+  bottom: 0.5rem;
+
+  height: 2.5rem;
+  width: 2.5rem;
+}
+label {
+  font-size: 1.5rem;
+}
+input {
+  height: 2em;
+  background-color: rgba(255, 255, 255, 0);
+  border: 0px;
+  border-bottom: 2px solid rgba(41, 41, 41, 0.733);
+}
+input:focus-visible {
+  outline: 1px solid rgba(88, 104, 88, 0.534);
+  border-radius: 2px 2px 0px 0px;
+}
+input:active {
+  border: 0px;
+  outline: 0px;
+}
+
+button {
+  background-color: rgba(255, 255, 255, 0);
+  background-image: url(add_FILL0_wght400_GRAD0_opsz48.png);
+  background-size: cover;
+  background-position: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 100%;
+  border: 0px;
+  outline: 2px solid #000000;
+}
+button:hover {
+  outline: 3px solid #022006;
+}
+button:active {
+  border: 3px solid #020e20;
 }
