@@ -34,6 +34,15 @@ function displayBooks() {
     deleteButton.addEventListener("click", deleteBook, false);
     deleteButton.bookItem = myLibrary[i];
 
+    const readSwitch = card.querySelector("#read-switch");
+    readSwitch.addEventListener("click", toggleRead, false);
+    readSwitch.bookItem = myLibrary[i];
+    readSwitch.checked = myLibrary[i].read;
+    if (myLibrary[i].read) {
+      card.classList.add("book-read");
+      card.querySelector(".card-footer").classList.add("book-read");
+    }
+
     //title
     const cardTitle = (card.querySelector(".title h2").innerText =
       myLibrary[i].title);
@@ -49,6 +58,14 @@ function displayBooks() {
     cardContainer.appendChild(card);
   }
 }
+
+function toggleRead(event) {
+  console.log("read");
+  event.currentTarget.bookItem.read = !event.currentTarget.bookItem.read;
+  console.log(event.currentTarget.bookItem);
+  displayBooks();
+}
+
 //delete book
 function deleteBook(event) {
   console.log("wow");
@@ -69,7 +86,7 @@ function submitForm(event) {
     const author = form.querySelector("#author").value;
     const numberOfPages = form.querySelector("#number-of-pages").value;
     const read = form.querySelector("#read").checked;
-    console.log(!myLibrary.some((book) => book.title === bookTitle));
+
     //checks if atleast 1 item has the same title
     if (!myLibrary.some((book) => book.title === bookTitle)) {
       addBookToLibrary(bookTitle, author, numberOfPages, read);

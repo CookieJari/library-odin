@@ -57,6 +57,7 @@ main > * {
   grid-gap: var(--grid-layout-gap);
   grid-template-rows: 200px;
 }
+
 .card {
   background: #083a51;
   position: relative;
@@ -71,6 +72,14 @@ main > * {
   flex-direction: column;
   align-items: left;
   justify-content: top;
+}
+
+.book-read {
+  background: #394347fd;
+  color: #c4d4db;
+}
+.card-footer.book-read {
+  background-color: #4b7561;
 }
 .title > h2 {
   inline-size: 100%;
@@ -148,7 +157,7 @@ main > * {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #e1f1e2;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -159,23 +168,23 @@ main > * {
   height: 1.2rem;
   width: 1.2rem;
   left: 2px;
-  bottom: 2.2px;
+  bottom: 11.5%;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #bcebbf;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #bcebbf;
 }
 
 input:checked + .slider:before {
-  /* -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px); */
+  -webkit-transform: translateX(1.5rem);
+  -ms-transform: translateX(1.5rem);
   transform: translateX(1.5rem);
 }
 
