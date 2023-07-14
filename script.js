@@ -1,3 +1,8 @@
+// TODO:
+// DELETE BUTTON
+// PREVENT MULTIPLES
+// READ AND UNREAD DESIGN
+
 let myLibrary = [];
 
 const cardContainer = document.querySelector(".display-container");
@@ -24,6 +29,11 @@ function displayBooks() {
   for (let i = 0; i < myLibrary.length; i++) {
     //clone the card template
     const card = cardTemplate.cloneNode(true);
+
+    const deleteButton = card.querySelector(".delete-item");
+    deleteButton.addEventListener("click", deleteBook, false);
+    deleteButton.bookItem = myLibrary[i];
+
     //title
     const cardTitle = (card.querySelector(".title h2").innerText =
       myLibrary[i].title);
@@ -35,19 +45,38 @@ function displayBooks() {
     //number of pages
     const cardPages = (card.querySelector(".pages span").innerText =
       myLibrary[i].numberOfPages);
+
     cardContainer.appendChild(card);
   }
+}
+//delete book
+function deleteBook(event) {
+  console.log("wow");
+  console.log(event.currentTarget.bookItem);
+
+  const index = myLibrary.indexOf(event.currentTarget.bookItem);
+  myLibrary.splice(index, 1);
+  displayBooks();
 }
 
 //add book using form
 function submitForm(event) {
-  const bookTitle = form.querySelector("#book-title").value;
-  const author = form.querySelector("#author").value;
-  const numberOfPages = form.querySelector("#number-of-pages").value;
-  const read = form.querySelector("#read").checked;
+  form.checkValidity();
 
-  addBookToLibrary(bookTitle, author, numberOfPages, read);
-  displayBooks();
+  if (form.reportValidity() === true) {
+    form.reportValidity();
+    const bookTitle = form.querySelector("#book-title").value;
+    const author = form.querySelector("#author").value;
+    const numberOfPages = form.querySelector("#number-of-pages").value;
+    const read = form.querySelector("#read").checked;
+    console.log(!myLibrary.some((book) => book.title === bookTitle));
+    //checks if atleast 1 item has the same title
+    if (!myLibrary.some((book) => book.title === bookTitle)) {
+      addBookToLibrary(bookTitle, author, numberOfPages, read);
+      displayBooks();
+    }
+  }
+
   event.preventDefault();
 }
 
